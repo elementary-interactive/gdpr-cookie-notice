@@ -1,6 +1,6 @@
 {
   "name": "gdpr-cookie-notice",
-    "repository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/hatja/gdpr-cookie-notice.git"
   },
@@ -8,7 +8,7 @@
   "author": {
     "name": "Beyaty David",
     "email": "beyaty.david@brightly.hu"
-    },
+  },
   "dependencies": {},
   "devDependencies": {
     "babel-eslint": "^8.2.3",

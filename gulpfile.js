@@ -51,23 +51,23 @@ gulp.task('javascript', function () {
     return gulp.src(['node_modules/js-cookie/src/js.cookie.js', 'src/js/templates.js','src/js/script.js', 'src/langs/en.js',])
     .pipe(sourcemaps.init())
     .pipe(concat('script.js'))
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(sourcemaps.write("./"))
     .pipe(gulp.dest(config.javascript.path.dist))
 });
 
-gulp.task("watch:sass", function () {
+/*gulp.task("watch:sass", function () {
     var paths = path.join(config.sass.path.src, '**', '*.scss');
     return gulp.watch(paths, function () {
         return gulp.start('styles:sass');
     }, {read: false})
-});
+});*/
 
-gulp.task("watch:javascript", function () {
+/*gulp.task("watch:javascript", function () {
     return watch(path.join(config.javascript.path.src, '**', '*.js'), function () {
         return gulp.start('javascript');
     }, {read: false});
-});
+});*/
 
 gulp.task('views:compile', function () {
     gulp.src('src/html/*.html')
@@ -87,13 +87,13 @@ gulp.task('lint', () => {
 });
 
 gulp.task('default', ['lint'], function () {
-    http.createServer(
+  /*  http.createServer(
       ecstatic({ root: __dirname })
     ).listen(3000);
 
-    console.log('Listening on :3000');
+    console.log('Listening on :3000');*/
 
-    gulp.start('watch:sass');
+    gulp.start('styles:sass');
     gulp.start('views:compile');
-    gulp.start('watch:javascript');
+    gulp.start('javascript');
 });
