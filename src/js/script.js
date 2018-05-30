@@ -9,7 +9,17 @@ function gdprCookieNotice(config) {
   var modalLoaded = false;
   var noticeLoaded = false;
   var cookiesAccepted = false;
-  var categories = ['performance', 'analytics', 'marketing'];
+  var categories = [];// ['performance', 'analytics', 'marketing'];
+  if(config.performance) {
+    categories.push('performance');
+  }
+  if(config.analytics) {
+    categories.push('analytics');
+  }
+  if(config.marketing) {
+    categories.push('marketing');
+  }
+
 
   // Default config options
   if(!config.locale) config.locale = 'en';
