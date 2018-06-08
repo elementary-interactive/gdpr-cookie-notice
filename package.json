@@ -4,7 +4,7 @@
     "type": "git",
     "url": "git+https://github.com/hatja/gdpr-cookie-notice.git"
   },
-  "version": "1.1.1",
+  "version": "1.1.0",
   "author": {
     "name": "Beyaty David",
     "email": "beyaty.david@brightly.hu"
@@ -12,17 +12,23 @@
   "dependencies": {},
   "devDependencies": {
     "babel-eslint": "^8.2.3",
+    "ecstatic": "^3.2.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
+    "gulp-browserify": "^0.5.1",
     "gulp-concat": "^2.6.0",
     "gulp-eslint": "^4.0.2",
+    "gulp-html-to-js": "0.0.6",
     "gulp-html2js": "^0.4.2",
     "gulp-if": "^2.0.0",
     "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.1",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.11",
     "js-cookie": "^2.2.0",
     "mustard-ui": "0.0.7",
     "normalize.css": "^8.0.0",

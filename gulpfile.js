@@ -8,6 +8,14 @@ var path = require('path'),
     autoprefixer = require('gulp-autoprefixer');
     html2js = require('gulp-html2js');
     eslint = require('gulp-eslint');
+    //plumber = require('gulp-plumber'),
+    //watch = require('gulp-watch'),
+    //rename = require("gulp-rename"),
+    //browserify = require('gulp-browserify'),
+    //http = require('http');
+    //ecstatic = require('ecstatic');
+    //htmlToJs = require('gulp-html-to-js');
+
 
 var config = {
     javascript: {
