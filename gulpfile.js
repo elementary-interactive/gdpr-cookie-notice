@@ -1,18 +1,11 @@
 var path = require('path'),
     gulp = require('gulp'),
-    watch = require('gulp-watch'),
     sourcemaps = require('gulp-sourcemaps'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     notify = require('gulp-notify'),
-    plumber = require('gulp-plumber'),
     sass = require('gulp-sass'),
-    rename = require("gulp-rename"),
-    browserify = require('gulp-browserify'),
     autoprefixer = require('gulp-autoprefixer');
-    http = require('http');
-    ecstatic = require('ecstatic');
-    htmlToJs = require('gulp-html-to-js');
     html2js = require('gulp-html2js');
     eslint = require('gulp-eslint');
 

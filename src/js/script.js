@@ -9,6 +9,7 @@ function gdprCookieNotice(config) {
   var modalLoaded = false;
   var noticeLoaded = false;
   var cookiesAccepted = false;
+  var defaultChecked = false;
   var categories = [];// ['performance', 'analytics', 'marketing'];
   if(config.performance) {
     categories.push('performance');
@@ -18,6 +19,9 @@ function gdprCookieNotice(config) {
   }
   if(config.marketing) {
     categories.push('marketing');
+  }
+  if(config.defaultChecked) {
+    defaultChecked = true;
   }
 
 
@@ -126,7 +130,7 @@ function gdprCookieNotice(config) {
   }
 
   // Localize templates
-  function localizeTemplate(template, prefix) {
+  function localizeTemplate(template, prefix, defaultChecked) {
     var str = templates[template];
     var data = gdprCookieNoticeLocales[config.locale];
 
@@ -184,9 +188,9 @@ function gdprCookieNotice(config) {
     input.remove();
 
     // Load other categories if needed
-    if(config.performance) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_performance');
-    if(config.analytics) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_analytics');
-    if(config.marketing) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_marketing');
+    if(config.performance) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_performance', defaultChecked);
+    if(config.analytics) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_analytics', defaultChecked);
+    if(config.marketing) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_marketing', defaultChecked);
 
     // Load click functions
     setModalEventListeners();
