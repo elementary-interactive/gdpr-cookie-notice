@@ -7,6 +7,11 @@ This is a javascript solution to show a gdpr compliant cookie notice on your web
 
 Check this site for a quick demo: https://passatgt.github.io/gdpr-cookie-notice/
 
+##### Install
+
+npm install --save https://github.com/hatja/gdpr-cookie-notice.git
+
+
 ##### How it works?
 
 Include the scripts.js and style.css files on your site from the dist folder. Init the script with the following config file:
