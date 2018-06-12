@@ -4,7 +4,7 @@ namespace hatja\Gdpr;
 
 use Illuminate\Support\ServiceProvider;
 
-class GdprCookieNoticeProvider extends ServiceProvider {
+class GdprCookieNoticeServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
