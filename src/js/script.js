@@ -133,6 +133,7 @@ function gdprCookieNotice(config) {
   function localizeTemplate(template, prefix, defaultChecked) {
     var str = templates[template];
     var data = gdprCookieNoticeLocales[config.locale];
+    data['checked'] = defaultChecked;
 
     if(prefix) {
       prefix = prefix+'_';
@@ -179,7 +180,7 @@ function gdprCookieNotice(config) {
     var categoryList = document.querySelector('.'+pluginPrefix+'-modal-cookies');
 
     //Load essential cookies
-    categoryList.innerHTML += localizeTemplate('category.html', 'cookie_essential');
+    categoryList.innerHTML += localizeTemplate('category.html', 'cookie_essential', config.defaultChecked);
     var input = document.querySelector('.'+pluginPrefix+'-modal-cookie-input');
     var label = document.querySelector('.'+pluginPrefix+'-modal-cookie-input-switch');
     label.innerHTML = gdprCookieNoticeLocales[config.locale]['always_on'];
@@ -188,9 +189,9 @@ function gdprCookieNotice(config) {
     input.remove();
 
     // Load other categories if needed
-    if(config.performance) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_performance', defaultChecked);
-    if(config.analytics) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_analytics', defaultChecked);
-    if(config.marketing) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_marketing', defaultChecked);
+    if(config.performance) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_performance', config.defaultChecked);
+    if(config.analytics) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_analytics', config.defaultChecked);
+    if(config.marketing) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_marketing', config.defaultChecked);
 
     // Load click functions
     setModalEventListeners();
