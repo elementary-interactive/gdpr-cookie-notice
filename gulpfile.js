@@ -41,19 +41,19 @@ var onJSError = function (err) {
 gulp.task('styles:sass', function () {
 
     return gulp.src(path.join(config.sass.path.src, '**', '*.scss'))
-        .pipe(sourcemaps.init())
+        //.pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(autoprefixer())
-        .pipe(sourcemaps.write("./"))
+        //.pipe(sourcemaps.write("./"))
         .pipe(gulp.dest(config.sass.path.dist));
 });
 
 gulp.task('javascript', function () {
     return gulp.src(['./node_modules/js-cookie/src/js.cookie.js', 'src/js/templates.js','src/js/script.js', 'src/langs/en.js'])
-    .pipe(sourcemaps.init())
+    //.pipe(sourcemaps.init())
     .pipe(concat('script.js'))
     .pipe(uglify())
-    .pipe(sourcemaps.write("./"))
+    //.pipe(sourcemaps.write("./"))
     .pipe(gulp.dest(config.javascript.path.dist))
 });
 
