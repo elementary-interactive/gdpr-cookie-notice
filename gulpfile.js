@@ -39,7 +39,7 @@ gulp.task('styles:sass', function () {
 });
 
 gulp.task('javascript', function () {
-    return gulp.src(['./node_modules/js-cookie/src/js.cookie.js', 'src/js/templates.js','src/js/script.js', 'src/langs/en.js'])
+    return gulp.src(['./node_modules/custom-event-polyfill/custom-event-polyfill.js', './node_modules/js-cookie/src/js.cookie.js', 'src/js/templates.js','src/js/script.js', 'src/langs/en.js'])
     .pipe(concat('script.js'))
     .pipe(uglify())
     .pipe(gulp.dest(config.javascript.path.dist))
