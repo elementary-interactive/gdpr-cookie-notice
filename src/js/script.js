@@ -64,7 +64,6 @@ function gdprCookieNotice(config) {
         }
       }
     }
-    console.log(gdprCookies);
     if(!savedCookies && !gdprCookies) {
       showNotice();
     } else {
