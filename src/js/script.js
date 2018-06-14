@@ -24,7 +24,6 @@ function gdprCookieNotice(config) {
     defaultChecked = true;
   }
 
-
   // Default config options
   if(!config.locale) config.locale = 'en';
   if(!config.timeout) config.timeout = 500;
@@ -271,7 +270,9 @@ function gdprCookieNotice(config) {
         saveButton.classList.remove('saved');
       }, 1000);
       acceptCookies(true);
-      hideModal();
+      setTimeout(function(){
+        hideModal();
+      }, 1000);
     });
 
   }
