@@ -180,7 +180,7 @@ function gdprCookieNotice(config) {
     var categoryList = document.querySelector('.'+pluginPrefix+'-modal-cookies');
 
     //Load essential cookies
-    categoryList.innerHTML += localizeTemplate('category.html', 'cookie_essential', config.defaultChecked);
+    categoryList.innerHTML += localizeTemplate('category.html', 'cookie_essential');
     var input = document.querySelector('.'+pluginPrefix+'-modal-cookie-input');
     var label = document.querySelector('.'+pluginPrefix+'-modal-cookie-input-switch');
     label.innerHTML = gdprCookieNoticeLocales[config.locale]['always_on'];
@@ -198,9 +198,9 @@ function gdprCookieNotice(config) {
 
     // Update checkboxes based on stored info(if any)
     if(currentCookieSelection) {
-      document.getElementById(pluginPrefix+'-cookie_performance').checked = currentCookieSelection.performance;
-      document.getElementById(pluginPrefix+'-cookie_analytics').checked = currentCookieSelection.analytics;
-      document.getElementById(pluginPrefix+'-cookie_marketing').checked = currentCookieSelection.marketing;
+      if(config.performance) document.getElementById(pluginPrefix+'-cookie_performance').checked = currentCookieSelection.performance;
+      if(config.analytics) document.getElementById(pluginPrefix+'-cookie_analytics').checked = currentCookieSelection.analytics;
+      if(config.marketing) document.getElementById(pluginPrefix+'-cookie_marketing').checked = currentCookieSelection.marketing;
     }
 
     // Make sure modal is only loaded once
