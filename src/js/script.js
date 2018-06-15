@@ -11,13 +11,13 @@ function gdprCookieNotice(config) {
   var cookiesAccepted = false;
   var defaultChecked = false;
   var categories = [];// ['performance', 'analytics', 'marketing'];
-  if(config.performance) {
+  if(config.performance != false && config.performance.length) {
     categories['performance'] = config.performance;
   }
-  if(config.analytics) {
+  if(config.analytics != false && config.analytics.length) {
     categories['analytics'] = config.analytics;
   }
-  if(config.marketing) {
+  if(config.marketing != false && config.marketing.length) {
     categories['marketing'] = config.marketing;
   }
   if(config.defaultChecked) {
@@ -253,7 +253,11 @@ function gdprCookieNotice(config) {
 
     statementButton.addEventListener('click', function(e) {
       e.preventDefault();
-      window.location.href = config.statement;
+      window.open(
+        config.statement,
+        '_blank'
+      );
+      //window.location.href = config.statement;
     });
 
     for (var i = 0; i < categoryTitles.length; i++) {
