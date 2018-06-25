@@ -113,7 +113,7 @@ function gdprCookieNotice(config) {
       return false;
     }
 
-    var noticeHtml = localizeTemplate('bar.html');
+    var noticeHtml = localizeTemplate('bar.html', null, false);
     document.body.insertAdjacentHTML('beforeend', noticeHtml);
 
     // Load click functions
@@ -175,7 +175,7 @@ function gdprCookieNotice(config) {
     }
 
     // Load modal template
-    var modalHtml = localizeTemplate('modal.html');
+    var modalHtml = localizeTemplate('modal.html', null, false);
 
     // Append modal into body
     document.body.insertAdjacentHTML('beforeend', modalHtml);
@@ -184,7 +184,7 @@ function gdprCookieNotice(config) {
     var categoryList = document.querySelector('.'+pluginPrefix+'-modal-cookies');
 
     //Load essential cookies
-    categoryList.innerHTML += localizeTemplate('category.html', 'cookie_essential');
+    categoryList.innerHTML += localizeTemplate('category.html', 'cookie_essential', config.defaultChecked);
     var input = document.querySelector('.'+pluginPrefix+'-modal-cookie-input');
     var label = document.querySelector('.'+pluginPrefix+'-modal-cookie-input-switch');
     label.innerHTML = gdprCookieNoticeLocales[config.locale]['always_on'];
