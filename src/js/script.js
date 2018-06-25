@@ -113,7 +113,7 @@ function gdprCookieNotice(config) {
       return false;
     }
 
-    var noticeHtml = localizeTemplate('bar.html', null, false);
+    var noticeHtml = localizeTemplate('bar.html', null);
     document.body.insertAdjacentHTML('beforeend', noticeHtml);
 
     // Load click functions
@@ -134,10 +134,9 @@ function gdprCookieNotice(config) {
   }
 
   // Localize templates
-  function localizeTemplate(template, prefix, defaultChecked) {
+  function localizeTemplate(template, prefix) {
     var str = templates[template];
     var data = gdprCookieNoticeLocales[config.locale];
-    data['checked'] = defaultChecked;
 
     if(prefix) {
       prefix = prefix+'_';
@@ -175,7 +174,7 @@ function gdprCookieNotice(config) {
     }
 
     // Load modal template
-    var modalHtml = localizeTemplate('modal.html', null, false);
+    var modalHtml = localizeTemplate('modal.html', null);
 
     // Append modal into body
     document.body.insertAdjacentHTML('beforeend', modalHtml);
@@ -184,7 +183,7 @@ function gdprCookieNotice(config) {
     var categoryList = document.querySelector('.'+pluginPrefix+'-modal-cookies');
 
     //Load essential cookies
-    categoryList.innerHTML += localizeTemplate('category.html', 'cookie_essential', config.defaultChecked);
+    categoryList.innerHTML += localizeTemplate('category.html', 'cookie_essential');
     var input = document.querySelector('.'+pluginPrefix+'-modal-cookie-input');
     var label = document.querySelector('.'+pluginPrefix+'-modal-cookie-input-switch');
     label.innerHTML = gdprCookieNoticeLocales[config.locale]['always_on'];
@@ -193,9 +192,9 @@ function gdprCookieNotice(config) {
     input.remove();
 
     // Load other categories if needed
-    if(config.performance) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_performance', config.defaultChecked);
-    if(config.analytics) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_analytics', config.defaultChecked);
-    if(config.marketing) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_marketing', config.defaultChecked);
+    if(config.performance) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_performance');
+    if(config.analytics) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_analytics');
+    if(config.marketing) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_marketing');
 
     // Load click functions
     setModalEventListeners();
@@ -205,6 +204,10 @@ function gdprCookieNotice(config) {
       if(config.performance) document.getElementById(pluginPrefix+'-cookie_performance').checked = currentCookieSelection.performance;
       if(config.analytics) document.getElementById(pluginPrefix+'-cookie_analytics').checked = currentCookieSelection.analytics;
       if(config.marketing) document.getElementById(pluginPrefix+'-cookie_marketing').checked = currentCookieSelection.marketing;
+    } else {
+      if(config.performance) document.getElementById(pluginPrefix+'-cookie_performance').checked = config.defaultChecked;
+      if(config.analytics) document.getElementById(pluginPrefix+'-cookie_analytics').checked = config.defaultChecked;
+      if(config.marketing) document.getElementById(pluginPrefix+'-cookie_marketing').checked = config.defaultChecked;
     }
 
     // Make sure modal is only loaded once
