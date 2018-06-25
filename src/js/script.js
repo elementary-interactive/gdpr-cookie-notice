@@ -10,24 +10,26 @@ function gdprCookieNotice(config) {
   var noticeLoaded = false;
   var cookiesAccepted = false;
   var defaultChecked = false;
-  var categories = [];// ['performance', 'analytics', 'marketing'];
+  var categories = [];//['performance', 'analytics', 'marketing'];
   if(config.performance != false && config.performance.length) {
-    categories['performance'] = config.performance;
+    categories.push('performance');
   }
   if(config.analytics != false && config.analytics.length) {
-    categories['analytics'] = config.analytics;
+    categories.push('analytics');
+    //categories['analytics'] = config.analytics;
   }
   if(config.marketing != false && config.marketing.length) {
-    categories['marketing'] = config.marketing;
+    categories.push('marketing');
+  //  categories['marketing'] = config.marketing;
   }
   if(config.defaultChecked) {
     defaultChecked = true;
   }
-
+  
   // Default config options
   if(!config.locale) config.locale = 'en';
   if(!config.timeout) config.timeout = 500;
-  if(!config.domain) config.domain = null;
+  if(!config.domain) config.domain = window.location.hostname;
   if(!config.expiration) config.expiration = 30;
 
   // Get the users current cookie selection
@@ -91,7 +93,6 @@ function gdprCookieNotice(config) {
     categories.forEach(function(cat) {
       value[cat] = true;
     });
-
     // If request was coming from the modal, check for the settings
     if(save) {
       for (var i = 0; i < categories.length; i++) {

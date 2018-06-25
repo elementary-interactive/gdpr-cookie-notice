@@ -13,7 +13,7 @@ window["gdpr-cookie-notice-templates"]["bar.html"] = "<div class=\"gdpr-cookie-n
 window["gdpr-cookie-notice-templates"]["category.html"] = "<li class=\"gdpr-cookie-notice-modal-cookie\">\n" +
     "  <div class=\"gdpr-cookie-notice-modal-cookie-row\">\n" +
     "    <h3 class=\"gdpr-cookie-notice-modal-cookie-title\">{title}</h3>\n" +
-    "    <input type=\"checkbox\" name=\"gdpr-cookie-notice-{prefix}\" id=\"gdpr-cookie-notice-{prefix}\" class=\"gdpr-cookie-notice-modal-cookie-input\" {checked}>\n" +
+    "    <input type=\"checkbox\" name=\"gdpr-cookie-notice-{prefix}\" id=\"gdpr-cookie-notice-{prefix}\" class=\"gdpr-cookie-notice-modal-cookie-input\">\n" +
     "    <label class=\"gdpr-cookie-notice-modal-cookie-input-switch\" for=\"gdpr-cookie-notice-{prefix}\"></label>\n" +
     "  </div>\n" +
     "  <p class=\"gdpr-cookie-notice-modal-cookie-info\">{desc}</p>\n" +
