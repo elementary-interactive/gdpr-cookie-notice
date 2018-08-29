@@ -1,7 +1,6 @@
 var path = require('path'),
     gulp = require('gulp'),
     concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
     notify = require('gulp-notify'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer');
@@ -41,7 +40,6 @@ gulp.task('styles:sass', function () {
 gulp.task('javascript', function () {
     return gulp.src(['./node_modules/custom-event-polyfill/custom-event-polyfill.js', './node_modules/js-cookie/src/js.cookie.js', 'src/js/templates.js','src/js/script.js', 'src/langs/hu.js'])
     .pipe(concat('script.js'))
-    //.pipe(uglify())
     .pipe(gulp.dest(config.javascript.path.dist))
 });
 

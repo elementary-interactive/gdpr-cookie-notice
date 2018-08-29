@@ -81,7 +81,10 @@ function gdprCookieNotice(config) {
 
   // Hide cookie notice bar
   function hideNotice() {
-    document.documentElement.classList.remove(pluginPrefix+'-loaded');
+    if(document.documentElement.classList.parentNode) {
+      document.documentElement.classList.parentNode.removeChild(pluginPrefix+'-loaded');
+    }
+  //  document.documentElement.classList.remove(pluginPrefix+'-loaded');
   }
 
   // Write gdpr cookie notice's cookies when user accepts cookies
@@ -189,8 +192,13 @@ function gdprCookieNotice(config) {
     var label = document.querySelector('.'+pluginPrefix+'-modal-cookie-input-switch');
     label.innerHTML = gdprCookieNoticeLocales[config.locale]['always_on'];
     label.classList.add(pluginPrefix+'-modal-cookie-state');
-    //label.classList.remove(pluginPrefix+'-modal-cookie-input-switch');
-    input.remove();
+    if(label.classList.parentNode) {
+      label.classList.parentNode.removeChild(pluginPrefix+'-modal-cookie-input-switch');
+    }
+    if(input.parentNode) {
+      input.parentNode.removeChild(input);
+    }
+
 
     // Load other categories if needed
     if(config.performance) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_performance');
@@ -223,7 +231,10 @@ function gdprCookieNotice(config) {
 
   // Hide modal window
   function hideModal() {
-    document.documentElement.classList.remove(pluginPrefix+'-show-modal');
+    if(document.documentElement.classList.parentNode) {
+      document.documentElement.classList.parentNode.removeChild(pluginPrefix+'-show-modal');
+    }
+    //document.documentElement.classList.remove(pluginPrefix+'-show-modal');
   }
 
   // Click functions in the notice
@@ -275,7 +286,7 @@ function gdprCookieNotice(config) {
       e.preventDefault();
       saveButton.classList.add('saved');
       setTimeout(function(){
-        saveButton.classList.remove('saved');
+        saveButton.classList.parentNode.removeChild('saved');
       }, 1000);
       acceptCookies(true);
       setTimeout(function(){
