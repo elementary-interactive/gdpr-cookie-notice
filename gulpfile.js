@@ -39,7 +39,7 @@ gulp.task('styles:sass', function () {
 });
 
 gulp.task('javascript', function () {
-    return gulp.src(['./node_modules/jquery/dist/jquery.min.js', './node_modules/custom-event-polyfill/custom-event-polyfill.js', './node_modules/js-cookie/src/js.cookie.js', 'src/js/templates.js','src/js/script.js', 'src/langs/hu.js'])
+    return gulp.src(['./node_modules/custom-event-polyfill/custom-event-polyfill.js', './node_modules/js-cookie/src/js.cookie.js', 'src/js/templates.js','src/js/script.js', 'src/langs/hu.js'])
     .pipe(concat('script.js'))
     //.pipe(uglify())
     .pipe(gulp.dest(config.javascript.path.dist))
