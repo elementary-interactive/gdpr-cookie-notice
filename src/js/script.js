@@ -81,8 +81,7 @@ function gdprCookieNotice(config) {
 
   // Hide cookie notice bar
   function hideNotice() {
-    //document.documentElement.classList.remove(pluginPrefix+'-loaded');
-      document.documentElement.classList.replace(pluginPrefix+'-loaded', '');
+    document.documentElement.classList.remove(pluginPrefix+'-loaded');
   }
 
   // Write gdpr cookie notice's cookies when user accepts cookies
@@ -190,10 +189,8 @@ function gdprCookieNotice(config) {
     var label = document.querySelector('.'+pluginPrefix+'-modal-cookie-input-switch');
     label.innerHTML = gdprCookieNoticeLocales[config.locale]['always_on'];
     label.classList.add(pluginPrefix+'-modal-cookie-state');
-    //label.classList.remove(pluginPrefix+'-modal-cookie-input-switch');
-    label.classList.replace(pluginPrefix+'-modal-cookie-input-switch', '');
-    //input.remove();
-    input.parentNode.removeChild();
+    label.classList.remove(pluginPrefix+'-modal-cookie-input-switch');
+    input.remove();
 
     // Load other categories if needed
     if(config.performance) categoryList.innerHTML += localizeTemplate('category.html', 'cookie_performance');
@@ -226,8 +223,7 @@ function gdprCookieNotice(config) {
 
   // Hide modal window
   function hideModal() {
-    //document.documentElement.classList.remove(pluginPrefix+'-show-modal');
-    document.documentElement.classList.replace(pluginPrefix+'-show-modal', '');
+    document.documentElement.classList.remove(pluginPrefix+'-show-modal');
   }
 
   // Click functions in the notice
@@ -279,8 +275,7 @@ function gdprCookieNotice(config) {
       e.preventDefault();
       saveButton.classList.add('saved');
       setTimeout(function(){
-        //saveButton.classList.remove('saved');
-        saveButton.classList.replace('saved', '');
+        saveButton.classList.remove('saved');
       }, 1000);
       acceptCookies(true);
       setTimeout(function(){
