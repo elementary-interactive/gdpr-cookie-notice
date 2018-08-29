@@ -20,6 +20,7 @@
     "gulp-notify": "^2.2.0",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0",
+    "jquery": "^2.2.4",
     "js-cookie": "^2.2.0",
     "mustard-ui": "0.0.7"
   }
