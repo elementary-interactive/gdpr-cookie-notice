@@ -43,3 +43,7 @@ You can use listen to the gdprCookiesEnabled event to load scripts on your site 
     }
   });
 ```
+
+#### How can i include a button to show the cookie settings modal?
+
+Simply add the classname 'gdpr-cookie-notice-settings-button' to any element, like <a href="#" class="gdpr-cookie-notice-settings-button">this</a>.
